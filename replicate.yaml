@@ -1,0 +1,20 @@
+version: "0.1"
+name: Temporal Pyramid Pooling Convolutional Neural Network for Cover Song Identification
+task: cover_song_identification
+entrypoints:
+  setup: feature_extractor:load_resources
+  infer: feature_extractor:extract_features
+formats:
+  input: audio_path
+  output: float_vector
+evaluation:
+  similarity_metric: cosine
+test_set: second_hand_songs_100k_2
+python_version: 3.7.4
+python_dependencies:
+- torch==1.0.0
+- librosa==0.6.3
+- torchvision==0.2.1
+- ipython
+system_dependencies:
+- ffmpeg

@@ -12,11 +12,11 @@ class BasicModule(torch.nn.Module):
         super(BasicModule, self).__init__()
         self.model_name = str(type(self))
 
-    def load(self, path):
+    def load(self, path, map_location=None):
         """
         可加载指定路径的模型
         """
-        self.load_state_dict(torch.load(path))
+        self.load_state_dict(torch.load(path, map_location=map_location))
 
     def save(self, name=None):
         """
